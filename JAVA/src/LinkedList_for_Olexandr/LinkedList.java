@@ -31,6 +31,7 @@ public class LinkedList {
 
     }
 
+
     public void show(){
         Node node = head;
 
