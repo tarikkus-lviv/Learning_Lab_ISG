@@ -8,15 +8,27 @@ public class LinkedList {
         node.data = data;
         node.next = null;
 
-        if (head==null){
-            head = node;
-        } else {
-            Node n = head;
-            while(n.next != null){
-                n = n.next;
+
+//        excaption to check if number is below 0;
+        if (data < 0){
+            try {
+                throw new InsertException("Your number is below zero");
+            } catch (InsertException e) {
+                System.err.println(e.getMessage());
+                System.exit(0);
             }
-            n.next = node;
+        } else {
+            if (head==null){
+                head = node;
+            } else {
+                Node n = head;
+                while(n.next != null){
+                    n = n.next;
+                }
+                n.next = node;
+            }
         }
+
     }
 
     public void show(){
